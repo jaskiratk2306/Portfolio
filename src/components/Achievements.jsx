@@ -42,12 +42,12 @@ const certificates = [
 
 const Achievements = () => {
   return (
-    <section className="section container">
+    <section id="Achievements" className="section container">
       <h2 className="section-title">
         <span className="title-gradient">Achievements</span> & Certifications
       </h2>
 
-      {/* 🔥 ACHIEVEMENTS (TOP) */}
+     
       <div style={{ marginBottom: "3rem" }}>
         <h3
           style={{

@@ -46,7 +46,7 @@ const timelineData = [
 
 const Timeline = () => {
   return (
-    <section className="section container">
+    <section id="Timeline" className="section container">
       <h2 className="section-title">Experience & <span className="title-gradient">Education</span></h2>
       
       <div style={{ position: 'relative', maxWidth: '800px', margin: '0 auto' }}>

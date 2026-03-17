@@ -15,19 +15,25 @@ const Contact = () => {
     setSuccess(false);
     setError(false);
 
+    // Debug: log form values
+    const formData = new FormData(form.current);
+    console.log("Form Data:", Object.fromEntries(formData.entries()));
+
     emailjs
       .sendForm(
-        "service_2siy9ob",
-        "template_91frv9a",
+        "service_2siy9ob",     // Your Service ID
+        "template_hlx6fga",    // Your Template ID
         form.current,
-        "svcl48I-KCeKBrrzj"
+        "svcl48I-KCeKBrrzj"   // Your Public Key
       )
-      .then(() => {
+      .then((result) => {
+        console.log("SUCCESS:", result.text);
         setLoading(false);
         setSuccess(true);
         form.current.reset();
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error("ERROR:", err.text || err);
         setLoading(false);
         setError(true);
       });
@@ -35,7 +41,7 @@ const Contact = () => {
 
   return (
     <section
-      id="contact" // ✅ IMPORTANT FOR SCROLL
+      id="Contact"
       className="section container"
       style={{ textAlign: "center", paddingTop: "100px" }}
     >
@@ -96,17 +102,8 @@ const Contact = () => {
           {loading ? "Sending..." : "Send Message 🚀"}
         </button>
 
-        {success && (
-          <p style={{ color: "green" }}>
-            ✅ Message sent successfully!
-          </p>
-        )}
-
-        {error && (
-          <p style={{ color: "red" }}>
-            ❌ Something went wrong. Try again.
-          </p>
-        )}
+        {success && <p style={{ color: "green" }}>✅ Message sent successfully!</p>}
+        {error && <p style={{ color: "red" }}>❌ Something went wrong. Try again.</p>}
       </form>
     </section>
   );

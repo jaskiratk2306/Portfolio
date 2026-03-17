@@ -23,7 +23,7 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section className="section container">
+    <section id="Projects" className="section container">
       <h2 className="section-title">
         Featured <span className="title-gradient">Projects</span>
       </h2>

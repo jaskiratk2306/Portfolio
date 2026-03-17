@@ -10,6 +10,19 @@ const Hero = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  // Sections with capitalized IDs and colors
+  const sections = [
+    { id: "Contact", color: "#ff2d75" },
+    { id: "Projects", color: "#1abc9c" },
+    { id: "Skills", color: "#3498db" },
+    { id: "Achievements", color: "#f39c12" },
+    { id: "Timeline", color: "#9b59b6" },
+  ];
+
   return (
     <section
       style={{
@@ -20,29 +33,36 @@ const Hero = () => {
         position: "relative",
       }}
     >
-      {/* 🔥 TOP RIGHT CONTACT BUTTON */}
-      <button
-        onClick={() => {
-          document.getElementById("contact").scrollIntoView({
-            behavior: "smooth",
-          });
-        }}
+      {/* 🔥 TOP RIGHT NAV BUTTONS */}
+      <div
         style={{
           position: "absolute",
           top: "20px",
           right: "40px",
-          padding: "10px 20px",
-          background: "#ff2d75",
-          color: "white",
-          border: "none",
-          borderRadius: "25px",
-          cursor: "pointer",
-          fontWeight: "500",
-          boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+          display: "flex",
+          gap: "10px",
+          flexWrap: "wrap",
         }}
       >
-        Contact Me
-      </button>
+        {sections.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => scrollToSection(section.id)}
+            style={{
+              padding: "8px 16px",
+              background: section.color,
+              color: "white",
+              border: "none",
+              borderRadius: "25px",
+              cursor: "pointer",
+              fontWeight: "500",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+            }}
+          >
+            {section.id}
+          </button>
+        ))}
+      </div>
 
       {/* GRID */}
       <div

@@ -12,7 +12,7 @@ const skillsData = [
 
 const Skills = () => {
   return (
-    <section className="section container">
+    <section id="Skills" className="section container">
       <h2 className="section-title"><span className="title-gradient">Technical Arsenal</span></h2>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
         {skillsData.map((skill, index) => (
