@@ -17,9 +17,34 @@ const Hero = () => {
         display: "flex",
         alignItems: "center",
         padding: "0 5%",
+        position: "relative",
       }}
     >
-      {/* GRID CONTAINER */}
+      {/* 🔥 TOP RIGHT CONTACT BUTTON */}
+      <button
+        onClick={() => {
+          document.getElementById("contact").scrollIntoView({
+            behavior: "smooth",
+          });
+        }}
+        style={{
+          position: "absolute",
+          top: "20px",
+          right: "40px",
+          padding: "10px 20px",
+          background: "#ff2d75",
+          color: "white",
+          border: "none",
+          borderRadius: "25px",
+          cursor: "pointer",
+          fontWeight: "500",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+        }}
+      >
+        Contact Me
+      </button>
+
+      {/* GRID */}
       <div
         style={{
           display: "grid",
@@ -29,7 +54,7 @@ const Hero = () => {
           width: "100%",
         }}
       >
-        {/* LEFT CONTENT */}
+        {/* LEFT */}
         <div>
           <h2
             style={{
@@ -104,7 +129,6 @@ const Hero = () => {
               <Linkedin size={20} /> LinkedIn
             </a>
 
-            {/* RESUME BUTTON */}
             <a
               href="/resume.pdf"
               target="_blank"
@@ -123,7 +147,6 @@ const Hero = () => {
               <FileText size={20} /> Resume
             </a>
 
-            {/* EMAIL BUTTON */}
             <button
               onClick={handleEmailClick}
               style={{
@@ -153,7 +176,6 @@ const Hero = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            width: "100%",
           }}
         >
           <img
@@ -165,7 +187,8 @@ const Hero = () => {
               aspectRatio: "1/1",
               objectFit: "contain",
               objectPosition: "center top",
-             clipPath: "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
+              clipPath:
+                "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
               border: "6px solid #ff2d75",
             }}
           />
