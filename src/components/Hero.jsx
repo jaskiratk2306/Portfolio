@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Github, Linkedin, Mail, CheckCircle, BlocksIcon } from "lucide-react";
+import { Github, Linkedin, Mail, CheckCircle, FileText } from "lucide-react";
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
@@ -23,7 +23,7 @@ const Hero = () => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
           alignItems: "center",
           gap: "60px",
           width: "100%",
@@ -104,6 +104,26 @@ const Hero = () => {
               <Linkedin size={20} /> LinkedIn
             </a>
 
+            {/* RESUME BUTTON */}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                padding: "10px 18px",
+                background: "#111",
+                color: "white",
+                borderRadius: "25px",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                textDecoration: "none",
+              }}
+            >
+              <FileText size={20} /> Resume
+            </a>
+
+            {/* EMAIL BUTTON */}
             <button
               onClick={handleEmailClick}
               style={{
@@ -140,11 +160,13 @@ const Hero = () => {
             src="/profile.jpeg"
             alt="Jaskirat"
             style={{
-              width: "400px",
-  height: "400px",
-  objectFit: "contain",
-  clipPath: "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
-  border: "6px solid #ff2d75"
+              width: "100%",
+              maxWidth: "400px",
+              aspectRatio: "1/1",
+              objectFit: "contain",
+              objectPosition: "center top",
+             clipPath: "polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%)",
+              border: "6px solid #ff2d75",
             }}
           />
         </div>

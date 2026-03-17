@@ -1,5 +1,5 @@
 import React from 'react';
-import { Trophy, Award, CheckCircle } from 'lucide-react';
+import { Trophy, CheckCircle } from 'lucide-react';
 
 const achievements = [
   {
@@ -9,7 +9,7 @@ const achievements = [
     icon: <CheckCircle size={24} color="#00b09b" />
   },
   {
-    title: "Hacker-Rank Silver Badge (C++)",
+    title: "HackerRank Silver Badge (C++)",
     date: "Jan 2026",
     details: "Demonstrated strong problem-solving skills in C++.",
     icon: <Trophy size={24} color="#f6d365" />
@@ -17,59 +17,177 @@ const achievements = [
 ];
 
 const certificates = [
-  { course: "Natural Language Processing", issuer: "NPTEL", date: "Apr 2025" },
-  { course: "TCP/IP and Advanced Topics", issuer: "Coursera", date: "Nov 2024" },
-  { course: "Fundamentals of Network Communication", issuer: "Coursera", date: "Sep 2024" }
+  {
+    img: "/cert1.png",
+    pdf: "/cert1.pdf",
+    title: "Natural Language Processing",
+    issuer: "NPTEL",
+    date: "Apr 2025"
+  },
+  {
+    img: "/cert2.png",
+    pdf: "/cert2.pdf",
+    title: "TCP/IP and Advanced Topics",
+    issuer: "Coursera",
+    date: "Nov 2024"
+  },
+  {
+    img: "/cert3.png",
+    pdf: "/cert3.pdf",
+    title: "Fundamentals of Network Communication",
+    issuer: "Coursera",
+    date: "Sep 2024"
+  }
 ];
 
 const Achievements = () => {
   return (
     <section className="section container">
-      <h2 className="section-title"><span className="title-gradient">Achievements</span> & Certifications</h2>
-      
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem' }}>
-        {/* Achievements Column */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          <h3 style={{ fontSize: '1.5rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.75rem', marginBottom: '0.5rem' }}>Highlights</h3>
+      <h2 className="section-title">
+        <span className="title-gradient">Achievements</span> & Certifications
+      </h2>
+
+      {/* 🔥 ACHIEVEMENTS (TOP) */}
+      <div style={{ marginBottom: "3rem" }}>
+        <h3
+          style={{
+            fontSize: '1.5rem',
+            borderBottom: '1px solid var(--glass-border)',
+            paddingBottom: '0.75rem',
+            marginBottom: '1.5rem'
+          }}
+        >
+          Highlights
+        </h3>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
           {achievements.map((item, idx) => (
-            <div key={idx} className="glass-card" style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start' }}>
-              <div style={{ padding: '1rem', background: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
+            <div
+              key={idx}
+              className="glass-card"
+              style={{
+                display: 'flex',
+                gap: '1.5rem',
+                alignItems: 'flex-start'
+              }}
+            >
+              <div
+                style={{
+                  padding: '1rem',
+                  background: 'rgba(255,255,255,0.03)',
+                  borderRadius: '12px'
+                }}
+              >
                 {item.icon}
               </div>
+
               <div>
-                <h4 style={{ fontSize: '1.1rem', margin: '0 0 0.5rem 0', color: 'var(--text-primary)' }}>{item.title}</h4>
-                <div style={{ fontSize: '0.85rem', color: 'var(--accent-darkblue)', marginBottom: '0.5rem' }}>{item.date}</div>
-                <p style={{ margin: 0, fontSize: '0.9rem' }}>{item.details}</p>
+                <h4 style={{ fontSize: '1.1rem', marginBottom: "5px" }}>
+                  {item.title}
+                </h4>
+
+                <div
+                  style={{
+                    fontSize: '0.85rem',
+                    color: 'var(--accent-darkblue)',
+                    marginBottom: '5px'
+                  }}
+                >
+                  {item.date}
+                </div>
+
+                <p style={{ margin: 0, fontSize: '0.9rem' }}>
+                  {item.details}
+                </p>
               </div>
             </div>
           ))}
         </div>
+      </div>
 
-        {/* Certificates Column */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-          <h3 style={{ fontSize: '1.5rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.75rem', marginBottom: '0.5rem' }}>Certifications</h3>
-          <div className="glass-card" style={{ padding: '1.5rem' }}>
-            {certificates.map((cert, idx) => (
-              <div key={idx} style={{ 
-                display: 'flex', 
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                padding: '1rem 0',
-                borderBottom: idx === certificates.length - 1 ? 'none' : '1px solid var(--glass-border)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <Award size={20} color="var(--accent-pink)" />
-                  <div>
-                    <div style={{ color: 'var(--text-primary)', fontWeight: 500, marginBottom: '0.2rem' }}>{cert.course}</div>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{cert.issuer}</div>
-                  </div>
+      {/* 🔥 CERTIFICATIONS (BOTTOM) */}
+      <div>
+        <h3
+          style={{
+            fontSize: '1.5rem',
+            borderBottom: '1px solid var(--glass-border)',
+            paddingBottom: '0.75rem',
+            marginBottom: '1.5rem'
+          }}
+        >
+          Certifications
+        </h3>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+            gap: '1.5rem',
+            alignItems: 'stretch'
+          }}
+        >
+          {certificates.map((cert, idx) => (
+            <a
+              key={idx}
+              href={cert.pdf}
+              target="_blank"
+              rel="noreferrer"
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              <div
+                className="glass-card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  height: "100%",
+                  overflow: "hidden",
+                  borderRadius: "12px",
+                  cursor: "pointer"
+                }}
+                onMouseOver={(e) =>
+                  (e.currentTarget.querySelector("img").style.transform = "scale(1.05)")
+                }
+                onMouseOut={(e) =>
+                  (e.currentTarget.querySelector("img").style.transform = "scale(1)")
+                }
+              >
+                <img
+                  src={cert.img}
+                  alt={cert.title}
+                  style={{
+                    width: "100%",
+                    height: "160px",
+                    objectFit: "cover",
+                    transition: "0.3s"
+                  }}
+                />
+
+                <div
+                  style={{
+                    padding: "1rem",
+                    textAlign: "center",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between",
+                    flexGrow: 1
+                  }}
+                >
+                  <p style={{ margin: 0, fontWeight: "600" }}>
+                    {cert.title}
+                  </p>
+
+                  <p style={{ margin: "6px 0", fontSize: "0.85rem", color: "#777" }}>
+                    {cert.issuer}
+                  </p>
+
+                  <p style={{ margin: 0, fontSize: "0.75rem", color: "#999" }}>
+                    {cert.date}
+                  </p>
                 </div>
-                <span style={{ fontSize: '0.8rem', color: 'var(--accent-darkblue)', border: '1px solid var(--accent-darkblue)', padding: '0.25rem 0.5rem', borderRadius: '4px' }}>
-                  {cert.date}
-                </span>
               </div>
-            ))}
-          </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>
